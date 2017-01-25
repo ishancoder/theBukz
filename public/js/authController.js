@@ -10,6 +10,14 @@ angular.module('theBukz')
                 $scope.signUpError = err;
             });
         };
+        
+        $scope.signInWithFacebook = function() {
+            console.log("Signing in....");
+            Auth.$signInWithPopup("facebook").catch(function(err) {
+                console.log("Error :", err);
+                $scope.signUpError = err;
+            });
+        };
 
         Auth.$onAuthStateChanged(function(firebaseUser) {
             if(firebaseUser) {
