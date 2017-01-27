@@ -19,6 +19,18 @@
                 templateUrl: '/home.html',
                 controller: 'homeController'
             })
+            .state('register', {
+                url: '/register',
+                templateUrl: '/register.html',
+                controller: 'registerController',
+                resolve: {
+                    auth: function(Auth, $state) {
+                        return Auth.$requireSignIn().catch(function() {
+                            $state.go("home");
+                        });
+                    }
+                }
+            })
             .state('manageBooks', {
                 url: '/dashboard/manage-books',
                 templateUrl: '/manage-books.html',
