@@ -5,8 +5,8 @@ angular.module("theBukz")
         var bookArray = $firebaseArray(bookRef);
 
         var Book = {
-            getAllBook:function(){
-                return $firebaseObject(bookRef);
+            getAllBooks:function(){
+                return $firebaseArray(bookRef);
             },
             getBook: function(uid) {
                 return $firebaseObject(userRef.child(uid));

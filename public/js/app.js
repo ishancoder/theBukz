@@ -31,6 +31,11 @@
                     }
                 }
             })
+            .state('bookinfo', {
+                url: '/book/{bookId}',
+                templateUrl: '/book.html',
+                controller: 'bookController'
+            })
             .state('addbukz',{
                 url:"/addbukz",
                 templateUrl:"/addBook.html",
