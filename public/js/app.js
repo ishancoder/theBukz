@@ -31,6 +31,18 @@
                     }
                 }
             })
+            .state('addbukz',{
+                url:"/addbukz",
+                templateUrl:"/addBook.html",
+                controller:'addBookController',
+                  resolve: {
+                    auth: function(Auth, $state) {
+                        return Auth.$requireSignIn().catch(function() {
+                            $state.go("home");
+                        });
+                    }
+                }
+            })
             .state('manageBooks', {
                 url: '/dashboard/manage-books',
                 templateUrl: '/manage-books.html',
