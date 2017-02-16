@@ -1,0 +1,31 @@
+<section class="container">
+    <form ng-submit="addbukz()">
+        <div class="form-group">
+            <input ng-model="photo"
+       onchange="angular.element(this).scope().file_changed(this)"
+       type="file" accept="image/*" />
+        </div>
+        <div class="form-group">
+            <label> Book Name : </label>
+            <input class="form-control" type="text" ng-model="bookName"/>
+        </div>
+        <div class="form-group">
+            <label>Author Name : </label>
+            <input class="form-control" type="text" ng-model="authorName" />
+        </div>
+        <div class="form-group">
+            <label>publication : </label>
+            <input class="form-control" type="text" ng-model="publication" />
+        </div>
+        <div class="form-group">
+            <label>Edition : </label>
+            <input class="form-control" type="text" ng-model="edition" />
+        </div>
+        <div class="form-group">
+            <label>Price : </label>
+            <input class="form-control" type="number" ng-model="price" />
+        </div>
+        <input type="submit" class="btn btn-primary" />
+        <div ng-show="error" class="alert alert-danger"><strong>Caution : </strong> {{error}}</div>
+    </form>
+</section>
