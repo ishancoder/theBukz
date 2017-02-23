@@ -12,8 +12,8 @@
             <h4>{{book.price | currency:"&#8377;"}}</h4>
             <h4>{{book.publication}}</h4>
         </div>
-        <div class="col-md-1"><span class="	glyphicon glyphicon-pencil" data-toggle="modal" data={{book.$id}} data-target="#editBook" ng-click="myBookId(book.$id)"></span></div>
-        <div class="col-md-1"><span class="glyphicon glyphicon-trash" data-toggle="modal" data={{book.$id}} data-target="#deleteBook" ng-click="myBookId(book.$id)"></span></div>
+        <div class="col-md-1" ng-if='book.bookName !=""'><span class="glyphicon glyphicon-pencil" data-toggle="modal" data={{book.$id}} data-target="#editBook" ng-click="myPreBook(book.$id)"></span></div>
+        <div class="col-md-1" ng-if='book.bookName !=""'><span class="glyphicon glyphicon-trash" data-toggle="modal" data={{book.$id}} data-target="#deleteBook" ng-click="myBookId(book.$id)"></span></div>
     </div>
     <div class="modal fade" id="deleteBook" role="dialog">
         <div class="modal-dialog">   
@@ -64,12 +64,12 @@
                         <label>Price : </label>
                         <input class="form-control" type="number" ng-model="price" />
                     </div>
-                    <input type="submit" class="btn btn-primary" />
-                    <div ng-show="error" class="alert alert-danger"><strong>Caution : </strong> {{error}}</div>
+                    <div class="modal-footer">
+                            <input type="submit" class="btn btn-primary" data-toggle="modal"/>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <div ng-show="error" class="alert alert-danger"><strong>Caution : </strong> {{error}}</div>
+                    </div>
     </form>
-            </div>
-            <div class="modal-footer">   
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
