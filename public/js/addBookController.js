@@ -30,7 +30,7 @@ angular.module('theBukz')
         };
         $scope.addbukz= function(){
             console.log("add books........");
-             if($scope.bookName && $scope.authorName && $scope.publication && $scope.price && $scope.price && $scope.edition &&googleObj.uid ) {
+             if($scope.bookName && $scope.authorName && $scope.publication && $scope.price  && $scope.edition &&googleObj.uid ) {
                  console.log("Iam in if loop")
                 var obj = {
                     bookName: $scope.bookName,
@@ -41,8 +41,9 @@ angular.module('theBukz')
                     imageUrl: downloadUrl,
                     userId:googleObj.uid,
                 };
-                Books.addBook(obj, googleObj.uid);
-                $state.go("manageBooks");
+                Books.addBook(obj, googleObj.uid,function(){
+                    $state.go("manageBooks");
+                });
             } else {
                 $scope.error = "Please fill all the entries!";
             }

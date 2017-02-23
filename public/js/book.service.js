@@ -71,17 +71,21 @@ angular.module("theBukz")
             getBook: function(bookId) {
                 return $firebaseObject(bookRef.child(bookId));
             },
-            addBook:function(newValue, uid){
+            addBook:function(newValue, uid,callback){
              var ref = bookRef.push();
              bookId = ref.key;
              var self = this;
              ref.set(newValue).then(function() {
-                 self.addUserBook(uid);
+                 self.addUserBook(uid,callback);
              });
             },
-             addUserBook:function(uid){
+             addUserBook:function(uid,callback){
                  var userBookArray = $firebaseArray(userBooks.child(uid));
-                 userBookArray.$add(bookId);
+                 userBookArray.$add(bookId).then(
+                     function(){
+                         callback();
+                     }
+                 );
             },
             uploadImage:function(file, callback){
                 imageId = file.name;
