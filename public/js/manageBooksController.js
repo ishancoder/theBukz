@@ -1,14 +1,15 @@
 angular.module('theBukz')
-    .controller('manageBooksController', function($scope, Auth, Books) {
-        $scope.books = "";
+    .controller('manageBooksController', function($scope,Auth, Books) {
+        $scope.books = [];
+        $scope.bookAboutToDelete = null;
+
+        // edit book modal
         Books.getAllBooksFromUserId(Auth.$getAuth().uid,function(books) {
             $scope.books = books;
+            console.log(books);
         });
-        // edit book modal
-          
-        var bookId = "";
-        $scope.myBookId=function(event_id){
-            bookId = event_id;
+         $scope.deleteBook = function(bookid) {
+            $scope.bookAboutToDelete = bookid;
         };
         $scope.myPreBook= function(event_id){
             console.log("book id");
@@ -23,16 +24,22 @@ angular.module('theBukz')
                 $scope.price = bookObject.price;
                 $scope.edition = bookObject.edition;
                 $scope.imageUrl= bookObject.imageUrl;
+                $scope.bookPicture = bookObject.imageUrl;
                 $scope.error="";
          });
         }
-        $scope.deleteBook = function(){
-            if (bookId != ""){
-                Books.removeBook(Auth.$getAuth().uid,bookId);
+       $scope.deleteBookConfirm = function() {
+            var uid = Auth.$getAuth().uid;
+            if($scope.bookAboutToDelete && uid) {
+                Books.removeBook(uid, $scope.bookAboutToDelete, function() {     
+                    Books.getAllBooksFromUserId(uid, function(books) {
+                        $scope.books = books;
+                    });
+                });
+                $scope.bookAboutToDelete = null;
+            } else {
+                console.log("Authentication required for deletion.");
             }
-    else{
-        console.log("Ooops ");
-    }
         };
          
          var downloadUrl= "";
@@ -44,6 +51,10 @@ angular.module('theBukz')
          });
          var reader = new FileReader();
          reader.onload = function(e) {
+             $('#blah')
+                    .attr('src', e.target.result)
+                    .width(150)
+                    .height(200);
          };
          reader.readAsDataURL(photofile);
         });
@@ -73,4 +84,7 @@ angular.module('theBukz')
                 $scope.error = "Please fill all the entries!";
             }
          };
+           $scope.cancel = function () {
+        // $modalInstance.close();
+};
     });

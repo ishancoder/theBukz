@@ -1,6 +1,5 @@
 angular.module('theBukz')
     .controller("addBookController",function(Auth,$scope, $state, Books){
-    console.log("chal ja kute");
       googleObj = Auth.$getAuth();
        $scope.bookPicture ="";
         $scope:userId="";
@@ -23,7 +22,10 @@ angular.module('theBukz')
          });
          var reader = new FileReader();
          reader.onload = function(e) {
-            
+            $('#blah')
+                    .attr('src', e.target.result)
+                    .width(200)
+                    .height(200);
          };
          reader.readAsDataURL(photofile);
         });

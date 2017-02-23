@@ -25,33 +25,22 @@ angular.module("theBukz")
                     callback(books);
                 });
             },
-            removeBook:function(uid,bookId){
-                var self = this;
-                console.log("book Id remove");
-                console.log(bookId);
-                var objectBook = self.getBook(bookId);
-                console.log(objectBook);
-                for(var i=0;i<objectBook.length;i++){
-                    var obk = objectBook[i];
-                    console.log(obk);
-                }
-           console.log(obk);
-           //this.removeImage(obk.imageUrl);
-           bookRef.child(bookId).remove();
-               //var book=  $firebaseArray(bookRef.child(bookId)).$loaded();
-             var bookArray = $firebaseArray(userBooks.child(uid)).$loaded();
-             var userBookId;
-             bookArray.then(function(bookArray){
-                    for(var i= 0; i<bookArray.length ; i++){
+            removeBook:function(uid,bookId,callback){
+                bookRef.child(bookId).remove().then(function() {
+                    var bookArray = $firebaseArray(userBooks.child(uid)).$loaded();
+                    var userBookId;
+                    bookArray.then(function(bookArray){
+                    for(var i= 0; i < bookArray.length ; i++){
                         var bookValue = bookArray[i];
-                        if (bookValue.$value==bookId){
-                            userBookId=bookValue.$id;
+                        if (bookValue.$value == bookId){
+                            userBooks.child(uid).child(bookValue.$id).remove().then(function(){
+                                callback();
+                            });
+                            break;
                         }
                     }
-                console.log("userBookId");
-                console.log(userBookId);
-                userBooks.child(uid).child(userBookId).remove();
-             });
+                    });
+                });
             },
             updateBook:function(newValue,bookId){
                 console.log("new value");
@@ -89,9 +78,12 @@ angular.module("theBukz")
             },
             uploadImage:function(file, callback){
                 imageId = file.name;
-                bookImageRef.child(file.name).put(file).on('state_changed',
+                 bookImageRef.child(file.name).put(file).on('state_changed',
                     function progress(snapshot) {
+                        
                         bookSnapshot = snapshot;
+                        var percentage = (snapshot.bytesTransferred/snapshot.totalBytes)*100;
+                        uploader.value = percentage;
                         console.log(snapshot.downloadURL);
                     },
 
