@@ -83,11 +83,11 @@ angular.module("theBukz")
                 imageId = file.name;
                  bookImageRef.child(file.name).put(file).on('state_changed',
                     function progress(snapshot) {
-                        
                         bookSnapshot = snapshot;
                         var percentage = (snapshot.bytesTransferred/snapshot.totalBytes)*100;
                         uploader.value = percentage;
                         console.log(snapshot.downloadURL);
+                        callback(bookSnapshot.downloadURL);
                     },
 
                     function error(err) {
@@ -95,9 +95,7 @@ angular.module("theBukz")
                     },
 
                     function complete() {
-                        callback(bookSnapshot.downloadURL);
                         console.log("Completed uploading!");
-                        
                     }
                 );
             },
