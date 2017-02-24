@@ -1,2 +1,12 @@
-<section class="container">
+<section class="container-fluid">
+    <div class="homepage-center">
+        <a href="#!/book/{{book.$id}}" ng-repeat="book in books" class="homepage-book-card">
+            <img ng-src="{{book.imageUrl}}" alt="Image for {{book.bookName}}"  class="img-responsive"/>
+            <h3>{{book.bookName}}</h3>
+            <h4>by {{book.authorName}}</h4>
+            <h4>{{book.edition}}</h4>
+            <h4>{{book.price | currency:"&#8377;"}}</h4>
+            <h4>{{book.publication}}</h4>
+        </a>
+    </div>
 </section>

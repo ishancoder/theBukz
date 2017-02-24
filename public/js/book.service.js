@@ -8,7 +8,10 @@ angular.module("theBukz")
         var bookId;
         var imageId;
         var Book = {
-           
+            getAllBooks:function(){
+                return $firebaseArray(bookRef);
+            },
+          
             getAllBooksFromUserId:function(uid, callback){
                 var bookArray = $firebaseArray(userBooks.child(uid)).$loaded();
                 var self= this;
