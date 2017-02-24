@@ -55,10 +55,8 @@
                 <div class="navbar-right">
                     <span ng-show="getAuth()">Signed in as {{displayName}}</span>
                     <button type="button" ng-hide="getAuth()" class="btn btn-primary navbar-btn" data-toggle="modal" data-target="#signInModal">Sign in</button>
+                    <a href="#!/addbukz" class="btn btn-primary" ng-show="getAuth()" ng-click="hideAddBook()" role="button">add-book</a>
                     <button type="button" ng-show="getAuth()" class="btn btn-primary navbar-btn" ng-click="signOut()">Sign Out</button>
-                </div>
-                <div class="nav navbar-nav navbar-right">
-                    <a href="#!/addbukz" class="btn btn-info" ng-disabled="isDisabled" ng-model="isDisabled" ng-click="hideAddBook()" role="button">add-book</a>
                 </div>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
