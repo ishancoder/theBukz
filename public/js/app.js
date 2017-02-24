@@ -51,7 +51,14 @@
             .state('manageBooks', {
                 url: '/dashboard/manage-books',
                 templateUrl: '/manage-books.html',
-                controller: 'manageBooksController'
+                controller: 'manageBooksController',
+                resolve: {
+                    auth: function(Auth, $state) {
+                        return Auth.$requireSignIn().catch(function() {
+                            $state.go("home");
+                        });
+                    }
+                }
             })
             .state('aboutus', {
                 url: '/aboutus',

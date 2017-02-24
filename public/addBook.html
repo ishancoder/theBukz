@@ -1,6 +1,9 @@
 <section class="container">
     <form ng-submit="addbukz()">
         <div class="form-group">
+            <img id="blah" src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTyvAp_KUV3zi3Y2nheIOUyPuh-edegLE3dJ4DsRhHrbAEwF6e6" alt="your image" />
+            <br>
+            <progress value="0" max="100" id="uploader"></progress>
             <input ng-model="photo"
        onchange="angular.element(this).scope().file_changed(this)"
        type="file" accept="image/*" />
