@@ -1,4 +1,130 @@
 <section class="container">
-    {{book}}
-    {{owner}}
+    <div class="row">
+        <div class="col-md-6">
+            <img ng-src="{{book.imageUrl}}" alt="Image for {{book.bookName}}"  id="book-info-img"/>
+        </div>
+        <div class="col-md-6">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>{{book.bookName}}</h1>
+                </div>
+                <div class="col-md-12">
+                    <span class="label label-primary">Author</span>
+                    <span>{{book.authorName}}</span>
+                </div>
+                <div class="col-md-12">
+                    <h2>₹ {{book.price}}</h2>
+                </div>
+                <div class="col-md-12">
+                    <p><b>Edition: </b>{{book.edition}}</p>
+                </div>
+                <div class="col-md-12">
+                    <p><b>Publication: </b>{{book.publication}}</p>
+                </div>
+                <div class="col-md-12">
+                    <p><b>ISBN: </b>8976564567</p>
+                </div>
+                <div class="col-md-12">
+                    <p><b>Binding: </b>Paperback</p>
+                </div>
+                <div class="col-md-12">
+                    <p>
+                        <b>Description: </b>
+                        In his palace at Inuyama, Lord Iida Sadamu, warlord of the Tohan clan, surveys his famous nightingale floor. Its surface sings at the tread of every human foot, and no assassin can cross it. But 16-year-old Otori Takeo, his family murdered by Iidas warriors, has the magical skills of the Tribe that enable him to enter the lair of the Tohan.
+                    </p>
+                </div>
+            </div><!-- end row-->
+        </div>
+    </div><!-- end row -->
+    <div><br/>
+    <!-- Nav tabs -->
+    <div class="row">
+        <div class="col-md-12">
+            <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active">
+                    <li class="active"><a data-target="#userinfo" aria-controls="userinfo" role="tab" data-toggle="tab">Seller Information</a></li>
+                </li>
+                <li role="presentation"><a data-target="#details" aria-controls="details" role="tab" data-toggle="tab">Details</a></li>
+                <li role="presentation"><a data-target="#description" aria-controls="description" role="tab" data-toggle="tab">Description</a></li>
+            </ul>
+        </div>
+    </div><!-- end Nav tabs -->
+    <!-- Tab panes -->
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="userinfo">
+            <br/>
+            <div class="row">
+                <div class="col-md-4">
+                    <img ng-src="{{owner.userPicture}}" alt="Image for {{owner.userName}}" id="book-info-user-img" class="img-rounded" />
+                </div>
+                <div class="col-md-8">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h3>{{owner.userName}}</h3>
+                        </div>
+                        <div class="col-md-12">
+                            <h2><i class="fa fa-phone" aria-hidden="true"></i> {{owner.userPhone}}</h2>
+                        </div>
+                        <div class="col-md-12">
+                            <p><b>Address: </b>{{owner.userAddress}}</p>
+                        </div>
+                        <div class="col-md-12">
+                            <p><b>City: </b>{{owner.userCity}}</p>
+                        </div>
+                    </div><!-- end row-->
+                </div>
+            </div><!-- end row -->
+        </div>
+        <div role="tabpanel" class="tab-pane" id="details">
+            <br/>
+            <h4>Additional Information</h4>
+            <div class="table-responsive">          
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <td><b>Title</b></td>
+                            <td>{{book.bookName}}</td>
+                            <td><b>Author</b></td>
+                            <td>{{book.authorName}}</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td><b>Price</b></td>
+                            <td>{{book.price}}</td>
+                            <td><b>Publication</b></td>
+                            <td>{{book.publication}}</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td><b>Edition</b></td>
+                            <td>{{book.edition}}</td>
+                            <td><b>ISBN</b></td>
+                            <td>7878787878</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td><b>Binding</b></td>
+                            <td>Papaerback</td>
+                            <td><b>Pages</b></td>
+                            <td>300</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="description">
+            <div class="row">
+                <div class="col-md-12">
+                    <br/>
+                    <p>
+                        In his palace at Inuyama, Lord Iida Sadamu, warlord of the Tohan clan, surveys his famous nightingale floor. Its surface sings at the tread of every human foot, and no assassin can cross it. But 16-year-old Otori Takeo, his family murdered by Iidas warriors, has the magical skills of the Tribe that enable him to enter the lair of the Tohan.
+                    </p>
+                </div>
+            </div><!-- end row -->
+        </div>
+    </div><!-- end tab panes -->
+</div>
 </section>
