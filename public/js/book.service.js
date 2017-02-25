@@ -87,7 +87,7 @@ angular.module("theBukz")
                         var percentage = (snapshot.bytesTransferred/snapshot.totalBytes)*100;
                         uploader.value = percentage;
                         console.log(snapshot.downloadURL);
-                        callback(bookSnapshot.downloadURL);
+                        callback(snapshot.downloadURL);
                     },
 
                     function error(err) {
