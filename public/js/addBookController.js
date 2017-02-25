@@ -10,26 +10,29 @@ angular.module('theBukz')
         $scope.edition = "";
         $scope.imageUrl="";
         $scope.error="";
-        var downloadUrl= "";
+        $scope.downloadUrl= "";
+
         $scope.hideAddBook=function(){
             $scope.isDisabled = true;
         };
+
         $scope.file_changed = function(element) {
          $scope.$apply(function(scope) {
-         var photofile = element.files[0];
-         Books.uploadImage(photofile, function(snapshot) {
-             downloadUrl = snapshot;
-         });
-         var reader = new FileReader();
-         reader.onload = function(e) {
-            $('#blah')
-                    .attr('src', e.target.result)
-                    .width(200)
-                    .height(200);
-         };
-         reader.readAsDataURL(photofile);
-        });
+            var photofile = element.files[0];
+            Books.uploadImage(photofile, function(url) {
+                $scope.downloadUrl = url;
+            });
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                $('#blah')
+                        .attr('src', e.target.result)
+                        .width(200)
+                        .height(200);
+            };
+            reader.readAsDataURL(photofile);
+            });
         };
+
         $scope.addbukz= function(){
             console.log("add books........");
              if($scope.bookName && $scope.authorName && $scope.publication && $scope.price  && $scope.edition &&googleObj.uid ) {
@@ -40,7 +43,7 @@ angular.module('theBukz')
                     publication: $scope.publication,
                     price: $scope.price,
                     edition:$scope.edition,
-                    imageUrl: downloadUrl,
+                    imageUrl: $scope.downloadUrl,
                     userId:googleObj.uid,
                 };
                 Books.addBook(obj, googleObj.uid,function(){
