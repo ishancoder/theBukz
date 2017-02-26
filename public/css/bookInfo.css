@@ -1,0 +1,17 @@
+#book-info-img {
+    height: 400px;
+    width: 100%;
+}
+#book-info-user-img {
+    width: 100%;
+    height: 200px;
+}
+@media only screen and (max-width: 1050px) {
+    #book0info-img {
+        width: 90%;
+    }
+  #book-info-user-img {
+        width: 90%;
+        height: 200px;
+    }  
+}
