@@ -5,12 +5,35 @@
             <img style="margin: auto;" ng-src="{{book.imageUrl}}" alt="Image for {{book.bookName}}"  class="img-responsive"/>
         </div>
         <div class="col-md-6">
-
-            <h3>{{book.bookName}}</h3>
-            <h4>by {{book.authorName}}</h4>
-            <h4>{{book.edition}}</h4>
-            <h4>{{book.price | currency:"&#8377;"}}</h4>
-            <h4>{{book.publication}}</h4>
+            <div class="row">
+                <div class="col-md-12">
+                    <p><b>BookName:</b>{{book.bookName}}</p>
+                </div>
+                <div class="col-md-12">
+                    <p><b>AuthorName:</b>{{book.authorName}}</p>
+                </div>
+                <div class="col-md-12">
+                    <p><b>price:</b>₹{{book.price}}</p>
+                </div>
+                <div class="col-md-12">
+                    <p><b>Edition: </b>{{book.edition}}</p>
+                </div>
+                <div class="col-md-12">
+                    <p><b>Publication: </b>{{book.publication}}</p>
+                </div>
+                <div class="col-md-12">
+                    <p><b>ISBN: </b>{{book.isbn}}</p>
+                </div>
+                <div class="col-md-12">
+                    <p><b>Binding: </b>{{book.binding}}</p>
+                </div>
+                <div class="col-md-12">
+                    <p>
+                        <b>Description: </b> 
+                        {{book.descriptions}}
+                    </p>
+                </div>
+            </div>
         </div>
         <div class="col-md-1" ><span class="glyphicon glyphicon-pencil" data-toggle="modal" data={{book.$id}} data-target="#editBook" ng-click="myPreBook(book.$id)"></span></div>
         <div class="col-md-1"><span class="glyphicon glyphicon-trash" data-toggle="modal" data={{book.$id}} data-target="#deleteBook" ng-click="deleteBook(book.$id)"></span></div>
@@ -64,9 +87,29 @@
                         <input class="form-control" type="text" ng-model="edition" />
                     </div>
                     <div class="form-group">
-                        <label>Price : </label>
-                        <input class="form-control" type="number" ng-model="price" />
-                    </div>
+            <label>Pages : </label>
+            <input class="form-control" type="number" ng-model="pages" />
+        </div>
+        <div class="form-group">
+                <label for="sel1">Binding:</label>
+                <select class="form-control" ng-model="binding">
+                    <option>Papaerback</option>
+                    <option>Hardcover</option>
+                </select>
+        </div>
+        <div class="form-group">
+            <label>ISBN:</label>
+            <input class="form-control" type="number" ng-model="isbn" />
+        </div>
+        <div class="form-group">
+            <label>Price : </label>
+            <input class="form-control" type="number" ng-model="price" />
+        </div>
+        <div class="form-group">
+            <label>Description:</label>
+                <textarea class="form-control" rows="5" ng-model="descriptions"></textarea>
+        </div>
+
                     <div class="modal-footer">
                             <input type="submit" class="btn btn-primary" ng-click="cancel()"/>
                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

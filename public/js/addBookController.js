@@ -9,8 +9,12 @@ angular.module('theBukz')
         $scope.price = "";
         $scope.edition = "";
         $scope.imageUrl="";
-        $scope.error="";
         $scope.downloadUrl= "";
+        $scope.pages="";
+        $scope.binding="";
+        $scope.isbn="";
+        $scope.descriptions="";
+        $scope.error="";
 
         $scope.hideAddBook=function(){
             $scope.isDisabled = true;
@@ -44,6 +48,10 @@ angular.module('theBukz')
                     price: $scope.price,
                     edition:$scope.edition,
                     imageUrl: $scope.downloadUrl,
+                    pages:$scope.pages,
+                    binding:$scope.binding,
+                    isbn:$scope.isbn,
+                    descriptions:$scope.descriptions,
                     userId:googleObj.uid,
                 };
                 Books.addBook(obj, googleObj.uid,function(){
