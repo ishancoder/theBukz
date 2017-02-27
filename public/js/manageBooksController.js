@@ -25,6 +25,10 @@ angular.module('theBukz')
                 $scope.edition = bookObject.edition;
                 $scope.imageUrl= bookObject.imageUrl;
                 $scope.bookPicture = bookObject.imageUrl;
+                $scope.pages=bookObject.pages;
+                $scope.binding=bookObject.binding;
+                $scope.isbn=bookObject.isbn;
+                $scope.descriptions=bookObject.descriptions;
                 $scope.error="";
          });
         }
@@ -63,7 +67,7 @@ angular.module('theBukz')
         console.log("book object");
      
      $scope.editBukz=function(){
-             if($scope.bookName && $scope.authorName && $scope.publication && $scope.price  && $scope.edition ) {
+             if($scope.bookName && $scope.authorName && $scope.publication && $scope.price  && $scope.edition && $scope.pages) {
                  console.log("Iam in edit if loop")
                 var obj = {
                     bookName: $scope.bookName,
@@ -72,6 +76,11 @@ angular.module('theBukz')
                     price: $scope.price,
                     edition:$scope.edition,
                     imageUrl:downloadUrl,
+                    pages:$scope.pages,
+                    binding:$scope.binding,
+                    isbn:$scope.isbn,
+                    descriptions:$scope.descriptions,
+
                     userId:Auth.$getAuth().uid,
                 };
                 console.log(obj);
@@ -85,6 +94,6 @@ angular.module('theBukz')
             }
          };
            $scope.cancel = function () {
-        // $modalInstance.close();
+        //  $modalInstance.close();
 };
     });

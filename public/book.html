@@ -22,14 +22,14 @@
                     <p><b>Publication: </b>{{book.publication}}</p>
                 </div>
                 <div class="col-md-12">
-                    <p><b>ISBN: </b>8976564567</p>
+                    <p><b>ISBN: </b>{{book.isbn}}</p>
                 </div>
                 <div class="col-md-12">
-                    <p><b>Binding: </b>Paperback</p>
+                    <p><b>Binding: </b>{{book.binding}}</p>
                 </div>
                 <div class="col-md-12">
                     <p>
-                        <b>Description: </b> In his palace at Inuyama, Lord Iida Sadamu, warlord of the Tohan clan, surveys his famous nightingale floor. Its surface sings at the tread of every human foot, and no assassin can cross it. But 16-year-old Otori Takeo, his family murdered by Iidas warriors, has the magical skills of the Tribe that enable him to enter the lair of the Tohan.
+                        <b>Description: </b> {{book.descriptions}}
                     </p>
                 </div>
             </div>
@@ -117,17 +117,17 @@
                                         <td>{{book.edition}}</td>
                                         <td><b>ISBN</b>
                                         </td>
-                                        <td>7878787878</td>
+                                        <td>{{book.isbn}}</td>
                                     </tr>
                                 </tbody>
                                 <tbody>
                                     <tr>
                                         <td><b>Binding</b>
                                         </td>
-                                        <td>Papaerback</td>
+                                        <td>{{book.binding}}</td>
                                         <td><b>Pages</b>
                                         </td>
-                                        <td>300</td>
+                                        <td>{{book.pages}}</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -140,7 +140,7 @@
                     <div class="col-md-12">
                         <br/>
                         <p>
-                            In his palace at Inuyama, Lord Iida Sadamu, warlord of the Tohan clan, surveys his famous nightingale floor. Its surface sings at the tread of every human foot, and no assassin can cross it. But 16-year-old Otori Takeo, his family murdered by Iidas warriors, has the magical skills of the Tribe that enable him to enter the lair of the Tohan.
+                            {{book.descriptions}}
                         </p>
                     </div>
                 </div>

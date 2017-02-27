@@ -81,7 +81,8 @@ angular.module("theBukz")
             },
             uploadImage:function(file, callback){
                 imageId = file.name;
-                 bookImageRef.child(file.name).put(file).on('state_changed',
+                var imageName=Math.floor((Math.random()*6)+1);
+                 bookImageRef.child(imageName.toString()+file.name).put(file).on('state_changed',
                     function progress(snapshot) {
                         bookSnapshot = snapshot;
                         var percentage = (snapshot.bytesTransferred/snapshot.totalBytes)*100;
