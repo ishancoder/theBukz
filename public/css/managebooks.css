@@ -1,0 +1,10 @@
+.manage-books-button-group button{
+    padding: 1em;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+    margin-top: 0.5em;
+}
+
+.manage-books-details {
+    padding-left: 0.5em;
+}

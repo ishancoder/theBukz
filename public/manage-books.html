@@ -1,51 +1,39 @@
-<section class="container-fluid">
-    <div class="managebook-center">
-    <div ng-repeat="book in books" class="row">
-        <div class="col-md-4">
-            <img style="margin: auto;" ng-src="{{book.imageUrl}}" alt="Image for {{book.bookName}}"  class="img-responsive"/>
-        </div>
-        <div class="col-md-6">
-            <div class="row">
-                <div class="col-md-12">
-                    <p><b>Title:</b>{{book.bookName}}</p>
-                </div>
-                <div class="col-md-12">
-                    <p><b>Author:</b>{{book.authorName}}</p>
-                </div>
-                <div class="col-md-12">
-                    <p><b>Price:</b>₹{{book.price}}</p>
-                </div>
-                <div class="col-md-12">
-                    <p><b>Edition: </b>{{book.edition}}</p>
-                </div>
-                <div class="col-md-12">
-                    <p><b>Publication: </b>{{book.publication}}</p>
-                </div>
-                <div class="col-md-12">
-                    <p><b>ISBN: </b>{{book.isbn}}</p>
-                </div>
-                <div class="col-md-12">
-                    <p><b>Binding: </b>{{book.binding}}</p>
-                </div>
-                <div class="col-md-12">
-                    <p>
-                        <b>Description: </b> 
-                        {{book.descriptions}}
-                    </p>
+<section class="container">
+    <div ng-repeat="book in books" >
+        <div class="row">
+            <div class="col-md-3 col-md-offset-2">
+                <img style="max-width: 200px" ng-src="{{book.imageUrl}}" alt="Image for {{book.bookName}}"  class="img-responsive"/>
+            </div>
+            <div class="col-md-5 manage-books-detail">
+                <h4><b>Title:</b>{{book.bookName}}</h4>
+                <p><b>Author:</b>{{book.authorName}}</p>
+                <p><b>Price:</b>₹{{book.price}}</p>
+                <p><b>Edition: </b>{{book.edition}}</p>
+                <p><b>Publication: </b>{{book.publication}}</p>
+                <p><b>ISBN: </b>{{book.isbn}}</p>
+                <p><b>Binding: </b>{{book.binding}}</p>
+                <p>
+                    <b>Description: </b> 
+                    {{book.descriptions}}
+                </p>
+                <div class="manage-books-button-group">
+                    <button class="btn btn-warning" ng-click="myPreBook(book.$id)" data-toggle="modal" data={{book.$id}} data-target="#editBook" >Edit <span class="glyphicon glyphicon-pencil" ></span></button>
+                    <button class="btn btn-danger" data-toggle="modal" data={{book.$id}} data-target="#deleteBook"  ng-click="deleteBook(book.$id)">Remove <span class="glyphicon glyphicon-trash" ></span></button>
                 </div>
             </div>
         </div>
-        <div class="col-md-1" ><span class="glyphicon glyphicon-pencil" data-toggle="modal" data={{book.$id}} data-target="#editBook" ng-click="myPreBook(book.$id)"></span></div>
-        <div class="col-md-1"><span class="glyphicon glyphicon-trash" data-toggle="modal" data={{book.$id}} data-target="#deleteBook" ng-click="deleteBook(book.$id)"></span></div>
+        <hr>
     </div>
     <div class="modal fade" id="deleteBook" role="dialog">
         <div class="modal-dialog">   
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h3>Confirm</h3>
                 </div>
                 <div class="modal-body">
-                    <h3>Are you sure you want to delete</h3>
+                    <h4>Are you sure you want to delete ?</h4>
+                    <p>The action can't be reversed, once you delete a book you can't recover it back.</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" ng-click="deleteBookConfirm()" data-dismiss="modal">Delete</button>
