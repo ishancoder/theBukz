@@ -60,9 +60,9 @@
                     }
                 }
             })
-            .state('aboutus', {
-                url: '/aboutus',
-                templateUrl: '/aboutus.html',
+            .state('about', {
+                url: '/about',
+                templateUrl: '/about.html',
                 controller: 'aboutusController'
             });
 
@@ -70,7 +70,7 @@
     });
 
     app.controller('homeController', function($scope, $firebaseAuth) {
-        
+
     });
 
     app.factory('Auth', function($firebaseAuth) {
