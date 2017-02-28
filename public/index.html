@@ -56,6 +56,7 @@
                 
                 <div class="navbar-right">
                     <span ng-show="getAuth()">Signed in as {{displayName}}</span>
+                    <a href="#!/dashboard/manage-books" class="btn btn-warning" ng-show="getAuth()">Manage Books</a>
                     <button type="button" ng-hide="getAuth()" class="btn btn-primary navbar-btn" data-toggle="modal" data-target="#signInModal">Sign in</button>
                     <a href="#!/addbukz" class="btn btn-primary" ng-show="getAuth()" ng-click="hideAddBook()" role="button">add-book</a>
                     <button type="button" ng-show="getAuth()" class="btn btn-primary navbar-btn" ng-click="signOut()">Sign Out</button>
