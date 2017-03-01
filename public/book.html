@@ -13,7 +13,7 @@
                     <span>{{book.authorName}}</span>
                 </div>
                 <div class="col-md-12">
-                    <h2>₹ {{book.price}}</h2>
+                    <h2>{{book.price | currency:"&#8377;"}}</h2>
                 </div>
                 <div class="col-md-12">
                     <p><b>Edition: </b>{{book.edition}}</p>
