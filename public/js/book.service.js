@@ -45,8 +45,6 @@ angular.module("theBukz")
                 });
             },
             updateBook: function (newValue, bookId) {
-                console.log("new value");
-                console.log(newValue);
                 bookRef.child(bookId).set(newValue);
             },
             getAllBook: function () {
@@ -99,7 +97,6 @@ angular.module("theBukz")
                     function complete() {
                         console.log("Completed uploading!");
                         imageStorageRef.getDownloadURL().then(function(url) {
-                            console.log(url);
                             callback(url);
                         });
                     }

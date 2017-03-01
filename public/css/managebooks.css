@@ -4,7 +4,39 @@
     margin-right: 0.5em;
     margin-top: 0.5em;
 }
-
 .manage-books-details {
     padding-left: 0.5em;
+}
+.edit-book-upload-btn {
+    position: relative;
+    overflow: hidden;
+    margin-top: 70px; 
+}
+@media only screen and (max-width: 990px) {
+    .edit-book-upload-btn {
+        margin-top: 20px;
+    }
+}
+.edit-book-upload-btn input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+#edit-book-img-upload {
+    width: 200px;
+    height: 200px;
+    margin: auto;
+}
+.edit-book-progress-bar {
+    display: none;
 }

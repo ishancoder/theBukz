@@ -35,7 +35,7 @@ angular.module('theBukz')
         };
 
         $scope.addbukz = function() {
-            if ($scope.bookName && $scope.authorName && $scope.publication && $scope.price && $scope.edition && googleObj.uid) {
+            if ($scope.bookName && $scope.authorName && $scope.publication && $scope.price && $scope.edition && googleObj.uid && $scope.isbn && $scope.pages && $scope.descriptions && $scope.binding) {
                 var obj = {
                     bookName: $scope.bookName,
                     authorName: $scope.authorName,
