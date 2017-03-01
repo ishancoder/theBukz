@@ -24,7 +24,6 @@ angular.module("theBukz")
 
                         books.push(self.getBook(bookId.$value));
                     }
-                    console.log(books);
                     callback(books);
                 });
             },
@@ -83,12 +82,14 @@ angular.module("theBukz")
                 imageId = file.name;
                 var random = Math.floor((Math.random() * 1000000) + 1);
                 var effectiveImagePath = uid + "/" + random.toString() + file.name;
-                bookImageRef.child(effectiveImagePath).put(file).on('state_changed',
+                var downloadURL = "";
+                var imageStorageRef = bookImageRef.child(effectiveImagePath);
+                imageStorageRef.put(file).on('state_changed',
                     function progress(snapshot) {
                         bookSnapshot = snapshot;
                         var percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
                         uploader.value = percentage;
-                        callback(snapshot.downloadURL);
+                        downloadURL = snapshot.downloadURL;
                     },
 
                     function error(err) {
@@ -97,6 +98,10 @@ angular.module("theBukz")
 
                     function complete() {
                         console.log("Completed uploading!");
+                        imageStorageRef.getDownloadURL().then(function(url) {
+                            console.log(url);
+                            callback(url);
+                        });
                     }
                 );
             },

@@ -6,7 +6,6 @@ angular.module('theBukz')
         // edit book modal
         Books.getAllBooksFromUserId(Auth.$getAuth().uid, function (books) {
             $scope.books = books;
-            console.log(books);
         });
         $scope.deleteBook = function (bookid) {
             $scope.bookAboutToDelete = bookid;
@@ -64,11 +63,8 @@ angular.module('theBukz')
             });
         };
 
-        console.log("book object");
-
         $scope.editBukz = function () {
             if ($scope.bookName && $scope.authorName && $scope.publication && $scope.price && $scope.edition && $scope.pages) {
-                console.log("Iam in edit if loop")
                 var obj = {
                     bookName: $scope.bookName,
                     authorName: $scope.authorName,
@@ -85,7 +81,6 @@ angular.module('theBukz')
                 };
                 console.log(obj);
                 if (bookId != "") {
-                    console.log("book id maje le rhi h");
                     console.log(bookId);
                     Books.updateBook(obj, bookId);
                 }

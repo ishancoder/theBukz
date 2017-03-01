@@ -5,7 +5,6 @@ angular.module('theBukz')
         $scope.displayName = "";
         
         $scope.signInWithGoogle = function() {
-            console.log("Signing in....");
             Auth.$signInWithRedirect("google")
             .catch(function(err) {
                 console.log("Error :", err);
@@ -14,7 +13,6 @@ angular.module('theBukz')
         };
         
         $scope.signInWithFacebook = function() {
-            console.log("Signing in....");
             Auth.$signInWithRedirect("facebook").catch(function(err) {
                 console.log("Error :", err);
                 $scope.signUpError = err;
@@ -26,10 +24,7 @@ angular.module('theBukz')
                 $scope.displayName = firebaseUser.displayName;
                 Users.getProfile(firebaseUser.uid).$loaded()
                     .then(function(data) {
-                        console.log(data);
-                        if(data.userName) {
-                            console.log("logged in");
-                        } else {
+                        if(!data.userName) {
                             $state.go('register');
                         }
                     })
