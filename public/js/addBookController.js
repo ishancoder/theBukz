@@ -1,5 +1,5 @@
 angular.module('theBukz')
-    .controller("addBookController", function (Auth, $scope, $state, Books) {
+    .controller("addBookController", function(Auth, $scope, $state, Books) {
         googleObj = Auth.$getAuth();
         $scope.bookPicture = "";
         $scope: userId = "";
@@ -16,7 +16,7 @@ angular.module('theBukz')
         $scope.descriptions = "";
         $scope.error = "";
 
-        $scope.hideAddBook = function () {
+        $scope.hideAddBook = function() {
             $scope.isDisabled = true;
         };
 
@@ -30,11 +30,11 @@ angular.module('theBukz')
                 reader.onload = function(e) {
                     $('#add-book-img-upload').attr('src', e.target.result).width(200).height(200);
                 };
-                    reader.readAsDataURL(photofile);
-                });
+                reader.readAsDataURL(photofile);
+            });
         };
 
-        $scope.addbukz = function () {
+        $scope.addbukz = function() {
             if ($scope.bookName && $scope.authorName && $scope.publication && $scope.price && $scope.edition && googleObj.uid) {
                 var obj = {
                     bookName: $scope.bookName,
@@ -49,7 +49,7 @@ angular.module('theBukz')
                     descriptions: $scope.descriptions,
                     userId: googleObj.uid,
                 };
-                Books.addBook(obj, googleObj.uid, function () {
+                Books.addBook(obj, googleObj.uid, function() {
                     $state.go("manageBooks");
                 });
             } else {
