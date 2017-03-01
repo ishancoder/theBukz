@@ -1,19 +1,18 @@
 angular.module('theBukz')
-    .controller('manageBooksController', function ($scope, Auth, Books) {
+    .controller('manageBooksController', function($scope, Auth, Books) {
         $scope.books = [];
         $scope.bookAboutToDelete = null;
 
         // edit book modal
-        Books.getAllBooksFromUserId(Auth.$getAuth().uid, function (books) {
+        Books.getAllBooksFromUserId(Auth.$getAuth().uid, function(books) {
             $scope.books = books;
         });
-        $scope.deleteBook = function (bookid) {
+        $scope.deleteBook = function(bookid) {
             $scope.bookAboutToDelete = bookid;
         };
-        $scope.myPreBook = function (event_id) {
-                bookId = event_id;
-                //console.log(Books.getBook(event_id));
-                Books.preBook(event_id, function callback(bookObject) {
+        $scope.myPreBook = function(event_id) {
+            bookId = event_id;
+            Books.preBook(event_id, function callback(bookObject) {
                 $scope.bookObject = bookObject;
                 $scope.bookName = bookObject.bookName,
                 $scope.authorName = bookObject.authorName,
@@ -29,11 +28,11 @@ angular.module('theBukz')
                 $scope.error = "";
             });
         }
-        $scope.deleteBookConfirm = function () {
+        $scope.deleteBookConfirm = function() {
             var uid = Auth.$getAuth().uid;
             if ($scope.bookAboutToDelete && uid) {
-                Books.removeBook(uid, $scope.bookAboutToDelete, function () {
-                    Books.getAllBooksFromUserId(uid, function (books) {
+                Books.removeBook(uid, $scope.bookAboutToDelete, function() {
+                    Books.getAllBooksFromUserId(uid, function(books) {
                         $scope.books = books;
                     });
                 });
@@ -44,22 +43,22 @@ angular.module('theBukz')
         };
 
         var downloadUrl = "";
-        $scope.file_changed = function (element) {
-            $scope.$apply(function (scope) {
+        $scope.file_changed = function(element) {
+            $scope.$apply(function(scope) {
                 var photofile = element.files[0];
-                Books.uploadImage(Auth.$getAuth().uid, photofile, function (snapshot) {
+                Books.uploadImage(Auth.$getAuth().uid, photofile, function(snapshot) {
                     downloadUrl = snapshot;
                 });
                 var reader = new FileReader();
-                reader.onload = function (e) {
+                reader.onload = function(e) {
                     $('#edit-book-img-upload').attr('src', e.target.result).width(200).height(200);
                 };
                 reader.readAsDataURL(photofile);
             });
         };
 
-        $scope.editBukz = function () {
-            if ($scope.bookName && $scope.authorName && $scope.publication && $scope.price && $scope.edition && $scope.pages && $scope.isbn && $scope.descriptions && $scope.binding ) {
+        $scope.editBukz = function() {
+            if ($scope.bookName && $scope.authorName && $scope.publication && $scope.price && $scope.edition && $scope.pages && $scope.isbn && $scope.descriptions && $scope.binding) {
                 var obj = {
                     bookName: $scope.bookName,
                     authorName: $scope.authorName,
@@ -80,7 +79,7 @@ angular.module('theBukz')
                 $scope.error = "Please fill all the entries!";
             }
         };
-        $scope.cancel = function () {
+        $scope.cancel = function() {
             //  $modalInstance.close();
             $('.edit-book-info-modal').modal('hide');
         };
