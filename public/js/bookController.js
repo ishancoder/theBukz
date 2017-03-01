@@ -5,6 +5,8 @@ angular.module("theBukz")
 
         Books.getBook($stateParams.bookId).$loaded().then(function(book) {
             $scope.book = book;
-            $scope.owner = Users.getProfile(book.userId);
+            Users.getProfile(book.userId).$loaded().then(function(userInfo){
+                $scope.owner = userInfo;
+            });
         });
     });
