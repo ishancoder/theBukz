@@ -23,7 +23,7 @@ angular.module('theBukz')
         $scope.file_changed = function(element) {
             $scope.$apply(function(scope) {
                 var photofile = element.files[0];
-                Books.uploadImage(photofile, function(url) {
+                Books.uploadImage(Auth.$getAuth().uid,photofile, function(url) {
                     $scope.downloadUrl = url;
                 });
                 var reader = new FileReader();
