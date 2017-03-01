@@ -1,23 +1,27 @@
 <section class="container">
     <form ng-submit="addbukz()">
-        <div class="form-group">
-            <img id="blah" src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTyvAp_KUV3zi3Y2nheIOUyPuh-edegLE3dJ4DsRhHrbAEwF6e6" alt="your image" />
-            <br>
-            <progress value="0" max="100" id="uploader"></progress>
-            <input ng-model="photo"
-       onchange="angular.element(this).scope().file_changed(this)"
-       type="file" accept="image/*" />
+        <div class="row from-group">
+            <div class="col-md-2">
+                <img id="add-book-img-upload" class="img-responsive" src="/images/book-thumbnail.jpg" alt="book image"/>
+                <progress class="progress-bar" value="0" max="100" id="uploader"></progress>
+            </div>
+                <div class="col-md-2 text-center">
+                        <span class="btn btn-default btn-file add-book-upload-btn">
+                            Upload Image <input ng-model="photo" onchange="angular.element(this).scope().file_changed(this)" type="file" accept="image/*">
+                        </span>
+                </div>
         </div>
+        <br/>
         <div class="form-group">
             <label> Book Name : </label>
-            <input class="form-control" type="text" ng-model="bookName"/>
+            <input class="form-control" type="text" ng-model="bookName" />
         </div>
         <div class="form-group">
-            <label>Author Name : </label>
+            <label>Author : </label>
             <input class="form-control" type="text" ng-model="authorName" />
         </div>
         <div class="form-group">
-            <label>publication : </label>
+            <label>Publication : </label>
             <input class="form-control" type="text" ng-model="publication" />
         </div>
         <div class="form-group">
@@ -28,26 +32,27 @@
             <label>Pages : </label>
             <input class="form-control" type="number" ng-model="pages" />
         </div>
+        
         <div class="form-group">
-                <label for="sel1">Binding:</label>
-                <select class="form-control" ng-model="binding">
-                    <option>Papaerback</option>
-                    <option>Hardcover</option>
-                </select>
+            <label>Binding : </label>
+            <select class="form-control" ng-model="binding">
+                <option>Papaerback</option>
+                <option>Hardcover</option>
+            </select>
         </div>
         <div class="form-group">
-            <label>ISBN:</label>
+            <label>ISBN : </label>
             <input class="form-control" type="number" ng-model="isbn" />
         </div>
         <div class="form-group">
             <label>Price : </label>
-            <input class="form-control" type="number" ng-model="price" />
+            <input class="form-control" type="number" min="0" ng-model="price" />
         </div>
         <div class="form-group">
-            <label>Description:</label>
-                <textarea class="form-control" rows="5" ng-model="descriptions"></textarea>
+            <label>Description : </label>
+            <textarea class="form-control" rows="5" ng-model="descriptions"></textarea>
         </div>
         <input type="submit" class="btn btn-primary" />
-        <div ng-show="error" class="alert alert-danger"><strong>Caution : </strong> {{error}}</div>
+        <div ng-show="error" class="alert alert-danger add-book-alert"><strong>Caution : </strong> {{error}}</div>
     </form>
 </section>

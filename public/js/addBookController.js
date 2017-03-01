@@ -20,27 +20,22 @@ angular.module('theBukz')
             $scope.isDisabled = true;
         };
 
-        $scope.file_changed = function (element) {
-            $scope.$apply(function (scope) {
+        $scope.file_changed = function(element) {
+            $scope.$apply(function(scope) {
                 var photofile = element.files[0];
-                Books.uploadImage(Auth.$getAuth().uid, photofile, function (url) {
+                Books.uploadImage(photofile, function(url) {
                     $scope.downloadUrl = url;
                 });
                 var reader = new FileReader();
-                reader.onload = function (e) {
-                    $('#blah')
-                        .attr('src', e.target.result)
-                        .width(200)
-                        .height(200);
+                reader.onload = function(e) {
+                    $('#add-book-img-upload').attr('src', e.target.result).width(200).height(200);
                 };
-                reader.readAsDataURL(photofile);
-            });
+                    reader.readAsDataURL(photofile);
+                });
         };
 
         $scope.addbukz = function () {
-            console.log("add books........");
             if ($scope.bookName && $scope.authorName && $scope.publication && $scope.price && $scope.edition && googleObj.uid) {
-                console.log("Iam in if loop")
                 var obj = {
                     bookName: $scope.bookName,
                     authorName: $scope.authorName,
