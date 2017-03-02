@@ -7,9 +7,11 @@ angular.module('theBukz')
         Books.getAllBooksFromUserId(Auth.$getAuth().uid, function(books) {
             $scope.books = books;
         });
+        
         $scope.deleteBook = function(bookid) {
             $scope.bookAboutToDelete = bookid;
         };
+
         $scope.myPreBook = function(event_id) {
             bookId = event_id;
             Books.preBook(event_id, function callback(bookObject) {
@@ -65,7 +67,7 @@ angular.module('theBukz')
                     publication: $scope.publication,
                     price: $scope.price,
                     edition: $scope.edition,
-                    imageUrl: downloadUrl,
+                    imageUrl: downloadUrl || $scope.imageUrl,
                     pages: $scope.pages,
                     binding: $scope.binding,
                     isbn: $scope.isbn,
