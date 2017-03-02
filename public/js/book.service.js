@@ -1,5 +1,5 @@
 angular.module("theBukz")
-    .factory('Books', function ($firebaseObject, $firebaseArray) {
+    .factory('Books', function($firebaseObject, $firebaseArray) {
         var bookRef = firebase.database().ref('books');
         var bookImageRef = firebase.storage().ref('bookImage');
         var userBooks = firebase.database().ref('userBooks');
@@ -8,17 +8,16 @@ angular.module("theBukz")
         var bookId;
         var imageId;
         var Book = {
-            getAllBooks: function () {
+            getAllBooks: function() {
                 return $firebaseArray(bookRef);
             },
 
-            getAllBooksFromUserId: function (uid, callback) {
+            getAllBooksFromUserId: function(uid, callback) {
                 var bookArray = $firebaseArray(userBooks.child(uid)).$loaded();
                 var self = this;
-                bookArray.then(function (bookArray) {
+                bookArray.then(function(bookArray) {
                     var books = [];
                     books.dataDifferenceArray = [];
-                    //$scope.books = [];
                     for (var i = 0; i < bookArray.length; i++) {
                         var bookId = bookArray[i];
 
@@ -27,15 +26,15 @@ angular.module("theBukz")
                     callback(books);
                 });
             },
-            removeBook: function (uid, bookId, callback) {
-                bookRef.child(bookId).remove().then(function () {
+            removeBook: function(uid, bookId, callback) {
+                bookRef.child(bookId).remove().then(function() {
                     var bookArray = $firebaseArray(userBooks.child(uid)).$loaded();
                     var userBookId;
-                    bookArray.then(function (bookArray) {
+                    bookArray.then(function(bookArray) {
                         for (var i = 0; i < bookArray.length; i++) {
                             var bookValue = bookArray[i];
                             if (bookValue.$value == bookId) {
-                                userBooks.child(uid).child(bookValue.$id).remove().then(function () {
+                                userBooks.child(uid).child(bookValue.$id).remove().then(function() {
                                     callback();
                                 });
                                 break;
@@ -44,41 +43,39 @@ angular.module("theBukz")
                     });
                 });
             },
-            updateBook: function (newValue, bookId) {
-                console.log("new value");
-                console.log(newValue);
+            updateBook: function(newValue, bookId) {
                 bookRef.child(bookId).set(newValue);
             },
-            getAllBook: function () {
+            getAllBook: function() {
                 return $firebaseObject(bookRef);
             },
-            preBook: function (bookId, callback) {
+            preBook: function(bookId, callback) {
                 var object = this.getBook(bookId).$loaded();
-                object.then(function (object) {
+                object.then(function(object) {
                     callback(object);
                 });
 
             },
-            getBook: function (bookId) {
+            getBook: function(bookId) {
                 return $firebaseObject(bookRef.child(bookId));
             },
-            addBook: function (newValue, uid, callback) {
+            addBook: function(newValue, uid, callback) {
                 var ref = bookRef.push();
                 bookId = ref.key;
                 var self = this;
-                ref.set(newValue).then(function () {
+                ref.set(newValue).then(function() {
                     self.addUserBook(uid, callback);
                 });
             },
-            addUserBook: function (uid, callback) {
+            addUserBook: function(uid, callback) {
                 var userBookArray = $firebaseArray(userBooks.child(uid));
                 userBookArray.$add(bookId).then(
-                    function () {
+                    function() {
                         callback();
                     }
                 );
             },
-            uploadImage: function (uid, file, callback) {
+            uploadImage: function(uid, file, callback) {
                 imageId = file.name;
                 var random = Math.floor((Math.random() * 1000000) + 1);
                 var effectiveImagePath = uid + "/" + random.toString() + file.name;
@@ -99,17 +96,16 @@ angular.module("theBukz")
                     function complete() {
                         console.log("Completed uploading!");
                         imageStorageRef.getDownloadURL().then(function(url) {
-                            console.log(url);
                             callback(url);
                         });
                     }
                 );
             },
-            removeImage: function (imageUrl) {
+            removeImage: function(imageUrl) {
                 var imageRef = firebase.storage().refFromURL(imageUrl);
-                imageRef.child(imageId).delete().then(function () {
+                imageRef.child(imageId).delete().then(function() {
                     console.log("deleted succesfully");
-                }).catch(function () {
+                }).catch(function() {
                     console.log(error);
                 });
             }

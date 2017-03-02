@@ -26,9 +26,9 @@
 #add-book-img-upload {
     width: 200px;
     height: 200px;
-    margin: auto
+    margin: auto;
 }
-.progress-bar {
+.add-book-progress-bar {
     display: none;
 }
 .add-book-alert {
