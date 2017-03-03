@@ -11,7 +11,7 @@ angular.module('theBukz')
         $scope.imageUrl = "";
         $scope.downloadUrl = "";
         $scope.pages = "";
-        $scope.binding = "";
+        $scope.binding = "Paperback";
         $scope.isbn = "";
         $scope.descriptions = "";
         $scope.error = "";
