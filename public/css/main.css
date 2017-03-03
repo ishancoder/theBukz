@@ -1,0 +1,19 @@
+.btn-auth {
+    color: white;
+    font-size: 16px;
+    border-radius: 0.2em;
+    width: 200px;
+}
+.btn-google {
+    background-color: #DD4836;
+}
+.btn-facebook {
+    background-color: #3B5998;
+    margin-top: 10px;
+}
+.btn-google:hover {
+    color: white;
+}
+.btn-facebook:hover {
+    color: white;
+}
