@@ -1,4 +1,9 @@
 <section class="container">
+            <div ng-show="books==''" class="alert alert-warning">
+                <h4>
+                    <strong>Oops!</strong> Nothing book is here.
+                </h4>
+            </div>
     <div ng-repeat="book in books">
         <div class="row">
             <div class="col-md-3 col-md-offset-2">
