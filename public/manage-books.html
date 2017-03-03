@@ -4,7 +4,7 @@
                     <strong>Oops!</strong> Nothing is here.
                 </h4>
             </div>
-    <div ng-repeat="book in books">
+    <div ng-repeat="book in books | filter:searchText">
         <div class="row">
             <div class="col-md-3 col-md-offset-2">
                 <img style="max-width: 200px" ng-src="{{book.imageUrl}}" alt="Image for {{book.bookName}}" class="img-responsive" />
