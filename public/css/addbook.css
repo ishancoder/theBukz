@@ -1,13 +1,15 @@
 .add-book-upload-btn {
     position: relative;
     overflow: hidden;
-    margin-top: 70px; 
+    margin-top: 70px;
 }
+
 @media only screen and (max-width: 990px) {
     .add-book-upload-btn {
         margin-top: 20px;
     }
 }
+
 .add-book-upload-btn input[type=file] {
     position: absolute;
     top: 0;
@@ -23,14 +25,17 @@
     cursor: inherit;
     display: block;
 }
+
 #add-book-img-upload {
     width: 200px;
     height: 200px;
     margin: auto;
 }
+
 .add-book-progress-bar {
     display: none;
 }
+
 .add-book-alert {
     margin-top: 10px;
 }

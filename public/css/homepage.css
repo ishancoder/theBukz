@@ -6,23 +6,34 @@
     flex-wrap: wrap;
 }
 
-.homepage-center a {
+.homepage a {
     text-decoration: none;
     color: black;
 }
 
-.homepage-book-card {
-    display: inline-block;
-    box-shadow: 0px 10px 40px -5px gray;
-    padding: 1em;
-    margin-left: 0.5em;
-    margin-right: 0.5em;
-    min-width: 300px;
-    width: 20%;
-    max-width: 30%;
-    cursor: pointer;
-    transition: all 600ms;
-    -webkit-transition: all 600ms;
+.homepage .image-container {
+    height: 246px;
+}
+
+.homepage .homepage-image {
+    max-height: 99%;
+    width: auto;
+    margin: auto;
+    display: block;
+}
+
+.homepage .card {
+    background: white;
+    padding: 4px;
+    box-shadow: 0px 5px 10px #EEE;
+}
+
+.homepage .card-content {
+    padding-left: 1.5em;
+}
+
+.homepage .card:hover {
+    box-shadow: 0px 10px 20px #EEE;
 }
 
 .homepage-book-card:hover {
