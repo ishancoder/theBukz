@@ -9,15 +9,15 @@
         </div>
         <div class="form-group">
             <label>City : </label>
-            <input class="form-control" type="text" ng-model="userCity" />
+            <input class="form-control" type="text" ng-model="userCity" value="{{userCity}}" />
         </div>
         <div class="form-group">
             <label>Address : </label>
-            <input class="form-control" type="text" ng-model="userAddress" />
+            <input class="form-control" type="text" ng-model="userAddress" value="{{userAddress}}" />
         </div>
         <div class="form-group">
             <label>Phone Number : </label>
-            <input class="form-control" type="phone" ng-model="userPhone" />
+            <input class="form-control" type="tel" ng-model="userPhone" values="{{userPhone}}"/>
         </div>
         <input type="submit" class="btn btn-primary" />
         <div ng-show="error" class="alert alert-danger"><strong>Caution : </strong> {{error}}</div>

@@ -9,6 +9,12 @@ angular.module("theBukz")
         $scope.userPhone = "";
         $scope.error = "";
 
+        Users.getProfile(googleObj.uid).$loaded().then(function(userData) {
+            $scope.userCity = userData.userCity || "";
+            $scope.userAddress = userData.userAddress || "";
+            $scope.userPhone = userData.userPhone || "";
+        });
+
         $scope.register = function() {
             console.log("register..");
             if($scope.userName && $scope.userCity && $scope.userAddress && $scope.userPhone) {

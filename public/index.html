@@ -42,7 +42,8 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">The Bukz</a>
+                <span><a class="navbar-brand" href="#">The Bukz 
+                <span class="label label-primary">Beta</span></a></span>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -60,10 +61,10 @@
                 </ul>
 
                 <div class="navbar-right">
-                    <span ng-show="getAuth()">Signed in as {{displayName}}</span>
+                    <span ng-show="getAuth()"><a href="#!/register">Signed in as {{displayName}}</a></span>
                     <a href="#!/dashboard/manage-books" class="btn btn-warning" ng-show="getAuth()">Manage Books</a>
                     <button type="button" ng-hide="getAuth()" class="btn btn-primary navbar-btn" data-toggle="modal" data-target="#signInModal">Sign in</button>
-                    <a href="#!/addbukz" class="btn btn-primary" ng-show="getAuth()" ng-click="hideAddBook()" role="button">add-book</a>
+                    <a href="#!/addbukz" class="btn btn-primary" ng-show="getAuth()" ng-click="hideAddBook()" role="button">Sell Book</a>
                     <button type="button" ng-show="getAuth()" class="btn btn-primary navbar-btn" ng-click="signOut()">Sign Out</button>
                 </div>
             </div>
