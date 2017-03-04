@@ -63,7 +63,6 @@
             .state('about', {
                 url: '/about',
                 templateUrl: '/about.html',
-                controller: 'aboutusController'
             });
 
         $urlRouterProvider.otherwise('home');
