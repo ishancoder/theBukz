@@ -5,7 +5,7 @@
                 <img ng-src="{{book.imageUrl}}" alt="Image for {{book.bookName}}" class="homepage-image" />
             </div>
             <div class="col-md-12 col-xs-6 card-content">
-                <p><h5><b>{{book.bookName}}</b></h5> {{book.binding}}, {{book.authorName}}</p>
+                <p><h5 style="text-overflow: ellipsis;"><b>{{book.bookName}}</b></h5> {{book.binding}}, {{book.authorName}}</p>
                 <h4>{{book.price | currency:"&#8377;"}}</h4>
             </div>
         </div>

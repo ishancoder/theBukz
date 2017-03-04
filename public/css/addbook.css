@@ -5,7 +5,7 @@
 .add-book-upload-btn {
     position: relative;
     overflow: hidden;
-    margin-top: 70px;
+    margin-top: 5px;
 }
 
 @media only screen and (max-width: 990px) {
