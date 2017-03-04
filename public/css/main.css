@@ -233,9 +233,12 @@ a, a:link, a:hover, a:active,a:visited {
 }
 
 .sidenav .closebtn {
-    display: inline;
+    position: absolute;
+    top: 0;
     right: 25px;
-    font-size: 20px;      
+    font-size: 36px;
+    margin-left: 50px;
+    color: #fff;        
 }
 
 @media screen and (max-height: 450px) {

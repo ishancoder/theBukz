@@ -80,16 +80,16 @@
         <div class="container" style="background-color: #2874f0; padding-top: 2em; padding-bottom: 2em;">
             <span class="sidenav-heading" ng-show="getAuth()">
                 {{displayName}} 
-                <a style="color: white;" href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
             </span>
+            <a style="color: white;" href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
         </div>
-        <a href="#!/Home">Home</a>
-        <a ng-hide="getAuth()" data-toggle="modal" data-target="#signInModal">Sign In</a>
-        <a href="#!/register" ng-show="getAuth()">Edit Profile</a>
-        <a href="#!/addbukz" ng-show="getAuth()" ng-click="hideAddBook()">Add Book</a>
-        <a href="#!/dashboard/manage-books" ng-show="getAuth()">Manage Book</a>
-        <a ng-click="signOut()" ng-show="getAuth()">Sign Out</a>
-        <a href="#!/about">About Us</a>
+        <a href="#!/Home" onclick="closeNav()">Home</a>
+        <a ng-hide="getAuth()" onclick="closeNav()" data-toggle="modal" data-target="#signInModal">Sign In</a>
+        <a href="#!/register" onclick="closeNav()" ng-show="getAuth()">Edit Profile</a>
+        <a href="#!/addbukz" onclick="closeNav()" ng-show="getAuth()" ng-click="hideAddBook()">Add Book</a>
+        <a href="#!/dashboard/manage-books" onclick="closeNav()" ng-show="getAuth()">Manage Book</a>
+        <a ng-click="signOut()" onclick="closeNav()" ng-show="getAuth()">Sign Out</a>
+        <a href="#!/about" onclick="closeNav()">About Us</a>
     </div>
 
     <div id="signInModal" class="modal fade" role="dialog">
