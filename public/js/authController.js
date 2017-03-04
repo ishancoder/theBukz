@@ -34,6 +34,7 @@ angular.module('theBukz')
             } else {
                 console.log("Sign Out!");
                 $scope.displayName = "";
+                $state.go('home');
             }
         });
 
