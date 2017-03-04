@@ -43,6 +43,11 @@
     white-space: nowrap;
 }
 
+.homepage .card-content span {
+    font-size: 12px;
+    color: gray;
+}
+
 .homepage .card:hover {
     box-shadow: 0px 10px 20px #EEE;
 }
