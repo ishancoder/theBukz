@@ -41,9 +41,9 @@
                     </li>
                     <li class="upper-links"><a class="links" ng-show="getAuth()" href="#!/dashboard/manage-books">Manage Books</a>
                     </li>
-                    <li class="upper-links"><a class="links" href="#!/addbukz" ng-show="getAuth()" ng-click="hideAddBook()">Add Book</a>
+                    <li class="upper-links"><a class="links" href="#!/addbukz" ng-show="getAuth()" ng-click="hideAddBook()">Sell A Book</a>
                     </li>
-                    <li class="upper-links dropdown" ng-show="getAuth()"><a class="links" href="#"><i class="fa fa-user" aria-hidden="true"></i> {{displayName}}</a>
+                    <li class="upper-links dropdown" ng-show="getAuth()"><a class="links" href="#"><i class="fa fa-user" aria-hidden="true"></i> Hi,{{displayName}}</a>
                         <ul class="dropdown-menu">
                             <li class="profile-li"><a class="profile-links" href="#!/register">Edit Profile</a>
                             </li>
@@ -77,9 +77,11 @@
         </div>
     </div>
     <div id="mySidenav" class="sidenav">
-        <div class="container" style="background-color: #2874f0; padding-top: 10px;">
-            <span class="sidenav-heading" ng-show="getAuth()">{{displayName}}</span>
-            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+        <div class="container" style="background-color: #2874f0; padding-top: 2em; padding-bottom: 2em;">
+            <span class="sidenav-heading" ng-show="getAuth()">
+                {{displayName}} 
+                <a style="color: white;" href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+            </span>
         </div>
         <a href="#!/Home">Home</a>
         <a ng-hide="getAuth()" data-toggle="modal" data-target="#signInModal">Sign In</a>
