@@ -7,6 +7,7 @@ angular.module("theBukz")
         var bookSnapshot;
         var bookId;
         var imageId;
+        
         var Book = {
             getAllBooks: function() {
                 return $firebaseArray(bookRef);
