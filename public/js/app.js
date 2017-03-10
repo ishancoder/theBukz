@@ -2,7 +2,9 @@
     var app = angular.module("theBukz", ['ui.router', 'firebase']);
 
     app.config(function($stateProvider, $urlRouterProvider) {
-        // Initialize Firebase
+        /**
+         * Initialize Firebase
+         */
         var config = {
             apiKey: "AIzaSyAxsLrH4d5FTGAOkOnwIcoL6TsTFKNIfSg",
             authDomain: "thebukz-4e719.firebaseapp.com",
@@ -12,7 +14,9 @@
         };
         firebase.initializeApp(config);
 
-        //routes
+        /**
+         * routes
+         */
         $stateProvider
             .state('home', {
                 url: '/home',
