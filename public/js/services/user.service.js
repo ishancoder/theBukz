@@ -1,9 +1,15 @@
 angular.module("theBukz")
     .factory('Users', function($firebaseObject, $firebaseArray) {
+        /********************
+         * Firebase Reference
+         ********************/
         var userRef = firebase.database().ref('users');
         var userArray = $firebaseArray(userRef);
 
         var User = {
+            /**
+             * 
+             */
             getProfile: function(uid) {
                 return $firebaseObject(userRef.child(uid));
             },
