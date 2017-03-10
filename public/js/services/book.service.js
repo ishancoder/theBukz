@@ -21,6 +21,7 @@ angular.module("theBukz")
             getAllBooks: function () {
                 return $firebaseArray(bookRef);
             },
+
             /******************************************
              * Function to query all books using user id
              * @param{Number} uid
@@ -40,6 +41,7 @@ angular.module("theBukz")
                     callback(books);
                 });
             },
+
             /******************************************
             * Function to remove book
             * @param{Number} uid
@@ -116,6 +118,7 @@ angular.module("theBukz")
                     self.addUserBook(uid, callback);
                 });
             },
+
             /******************************************
             * Function to add book id in user folder
             * @param{id} uid
@@ -129,6 +132,7 @@ angular.module("theBukz")
                     }
                 );
             },
+
             /******************************************
             * Function to upload image in firebase 
             * @param{id} uid
@@ -161,6 +165,7 @@ angular.module("theBukz")
                     }
                 );
             },
+
             /******************************************
             * Function to remove book in firebase using image location
             * @param{url} imageUrl
@@ -174,5 +179,6 @@ angular.module("theBukz")
                 });
             }
         };
+
         return Book;
     });
