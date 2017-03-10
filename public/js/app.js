@@ -16,12 +16,12 @@
         $stateProvider
             .state('home', {
                 url: '/home',
-                templateUrl: '/home.html',
+                templateUrl: '/template/home.html',
                 controller: 'homeController'
             })
             .state('register', {
                 url: '/register',
-                templateUrl: '/register.html',
+                templateUrl: '/template/register.html',
                 controller: 'registerController',
                 resolve: {
                     auth: function(Auth, $state) {
@@ -33,12 +33,12 @@
             })
             .state('bookinfo', {
                 url: '/book/{bookId}',
-                templateUrl: '/book.html',
+                templateUrl: '/template/book.html',
                 controller: 'bookController'
             })
             .state('addbukz',{
                 url:"/addbukz",
-                templateUrl:"/addBook.html",
+                templateUrl:"/template/addBook.html",
                 controller:'addBookController',
                   resolve: {
                     auth: function(Auth, $state) {
@@ -50,7 +50,7 @@
             })
             .state('manageBooks', {
                 url: '/dashboard/manage-books',
-                templateUrl: '/manage-books.html',
+                templateUrl: '/template/manage-books.html',
                 controller: 'manageBooksController',
                 resolve: {
                     auth: function(Auth, $state) {
@@ -62,7 +62,7 @@
             })
             .state('about', {
                 url: '/about',
-                templateUrl: '/about.html',
+                templateUrl: '/template/about.html',
             });
 
         $urlRouterProvider.otherwise('home');
