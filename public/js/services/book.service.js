@@ -24,7 +24,7 @@ angular.module("theBukz")
 
             /******************************************
              * Function to query all books using user id
-             * @param{Number} uid
+             * @param{id} uid
              * @param{callback} callback
              *****************************************/
             getAllBooksFromUserId: function (uid, callback) {
@@ -44,8 +44,8 @@ angular.module("theBukz")
 
             /******************************************
             * Function to remove book
-            * @param{Number} uid
-            * @param{Number} bookId
+            * @param{id} uid
+            * @param{id} bookId
             * @param{callback} callback
             *****************************************/
             removeBook: function (uid, bookId, callback) {
@@ -69,7 +69,7 @@ angular.module("theBukz")
             /******************************************
             * Function to updateBook
             * @param{object} newValue
-            * @param{Number} bookId
+            * @param{id} bookId
             *****************************************/
             updateBook: function (newValue, bookId) {
                 bookRef.child(bookId).set(newValue);
@@ -84,7 +84,7 @@ angular.module("theBukz")
 
             /******************************************
             * Function to give book when book succesfully added
-            * @param{Number} bookId
+            * @param{id} bookId
             * @param{callback} callback
             *****************************************/
             preBook: function (bookId, callback) {
@@ -97,7 +97,7 @@ angular.module("theBukz")
 
             /******************************************
             * Function to give book when book succesfully added
-            * @param{Number} bookId
+            * @param{id} bookId
             * @param{callback} callback
             *****************************************/
             getBook: function (bookId) {
