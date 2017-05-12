@@ -13,6 +13,15 @@
     color: black;
 }
 
+.about-page .vh-center .banner{
+    background: black;
+    color: white;
+    opacity: 0.6;
+    padding: 1em;
+    width: 100%;
+    text-align: center;
+}
+
 .about-page .profile-picture {
     border-radius: 50%;
     max-width: 200px;
